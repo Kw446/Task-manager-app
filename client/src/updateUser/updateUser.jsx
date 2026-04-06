@@ -21,7 +21,7 @@ const UpdateUser = () => {
 }
 useEffect(()=>{
 
-    axios.get(`http://localhost:5000/api/user/get_by_id/${id}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/get_by_id/${id}`)
     .then((res)=>{
         setUser(res.data.data);
 
@@ -42,7 +42,7 @@ const submitForm = async (e) => {
 
   try {
     const res = await axios.put(
-      `http://localhost:5000/api/user/update_user/${id}`,user);
+      `${process.env.REACT_APP_BASE_URL}/api/user/update_user/${id}`,user);
     console.log('Response:', res.data);
 
     if (res.data.success) {

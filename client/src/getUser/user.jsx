@@ -8,7 +8,7 @@ const User = () => {
 useEffect(()=>{
   const fecthUserData=async()=>{
     try{
-const response =await axios.get("http://localhost:5000/api/user/get_all_users");
+const response =await axios.get(`${process.env.REACT_APP_BASE_URL}/api/user/get_all_users`);
 setUser(response.data.data);
 
     }catch(error){
@@ -20,7 +20,7 @@ setUser(response.data.data);
 
 const DeleteUser=async(id)=>{
   try{
-    await axios.delete(`http://localhost:5000/api/user/delete_user/${id}`)
+    await axios.delete(`${process.env.REACT_APP_BASE_URL}/api/user/delete_user/${id}`)
     .then((response)=>{  
       if(response.data.success){
         setUser(users.filter((user)=>user._id !== id));

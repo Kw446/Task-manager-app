@@ -28,7 +28,7 @@ const submitForm = async (e) => {
 
   try {
     const res = await axios.post(
-      'http://localhost:5000/api/user/create',user);
+      `${process.env.REACT_APP_BASE_URL}/api/user/create`,user);
     console.log('Response:', res.data);
 
     if (res.data.success) {
